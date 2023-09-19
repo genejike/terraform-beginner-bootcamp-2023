@@ -1,6 +1,6 @@
 # Terraform Beginner Bootcamp 2023
 
-## semantic versioning 
+## semantic versioning :cloud:
 This PROJECT IS GOING TO UTILISE SEMANTIC VERSIONING 
 [semver.org](https://semver.org/)
 
