@@ -1,8 +1,8 @@
 # Terraform Beginner Bootcamp 2023
 
 
-## semantic versioning :mage:,:cloud:
-This PROJECT IS GOING TO UTILISE SEMANTIC VERSIONING 
+## Semantic versioning :mage:,:cloud:
+THIS PROJECT IS GOING TO UTILISE SEMANTIC VERSIONING 
 [semver.org](https://semver.org/)
 
 Given a version number **MAJOR.MINOR.PATCH ** eg . `1.0.0`, increment the:
@@ -13,9 +13,9 @@ Given a version number **MAJOR.MINOR.PATCH ** eg . `1.0.0`, increment the:
 
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
-## install Terraform cli
+## Install Terraform cli
 ### Terraform cli changes
-the terraform cli installations instructions have changed due to the gpg keyring changes so we needed to refer to the latest installation instructions and change the terraform scripting for the install
+The terraform cli installations instructions have changed due to the gpg keyring changes so we needed to refer to the latest installation instructions and change the terraform scripting for the install
 [install terraform cli](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli#install-terraform)
 
 ### Thoughts for linux distributions 
@@ -41,7 +41,7 @@ The bash script:[./bin/install_terraform_cli](./bin/install_terraform_cli)
 - for portability
 - will search the users path for executables 
 
-## Execution Consideration
+## Execution Consideration for bash scripts
 when executing the bash scripts we can use `./`
 
 eg,`./bin/install_terraform_cli`
@@ -59,5 +59,7 @@ chmod u+x ./bin/install_terraform_cli
 
 
 ## GITHUB LIFECYCLE (Before,init,command)
-We need need to be careful when using the init cause it wunt restart an existing workspace so we use the `before` instead 
+We need need to be careful when using the init cause it wunt restart an existing workspace so we use the `before` instead .
+
+see:
 [gitpod lifecycle](https://www.gitpod.io/docs/configure/workspaces/tasks)
