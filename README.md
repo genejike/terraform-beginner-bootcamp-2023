@@ -63,3 +63,35 @@ We need need to be careful when using the init cause it wunt restart an existing
 
 see:
 [gitpod lifecycle](https://www.gitpod.io/docs/configure/workspaces/tasks)
+
+### WORKING WITH ENV VARS 
+#### Env command
+we can list all the env variable with env command 
+we can filter specific env vars using grep eg. `env | grep aws`
+#### SETTING AND UNSETTING ENV VARS 
+in the terminal: 
+* we can set using `export hello='world'`
+* we can unset using `unset hello`
+* we can set an env temporarily when running a command 
+```sh
+hello='world' ./bin/install_terraform_cli
+
+```
+In a bash script:
+```sh
+#!/usr/bin/env bash 
+
+hello='world'
+echo $hello
+```
+#### printing env vars 
+print env variables with echo eg. `echo $hello`
+
+#### scopping of envars
+ when you open  new bash terminals it  isnt aware of past terminals ,if you want it present in future terminals set env vars in bash profiles eg. `./bash_profiles`
+
+ you can also persist them into gitpod by storing them in gitpods secret storage.
+ ```sh
+ gp env hello='world'
+ ```
+ you can store non-sensitive envars in `.gitpod.yml`
