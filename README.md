@@ -95,3 +95,32 @@ print env variables with echo eg. `echo $hello`
  gp env hello='world'
  ```
  you can store non-sensitive envars in `.gitpod.yml`
+
+ ### AWS CLI INSTALLATION
+AWS cli is installed via a bash script [./bin/install_aws_cli](./bin/install_aws_cli)
+[Installing Aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+[SET EN VARS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
+we can check if our aws credentials is configured correctly by running the following command:
+```sh
+aws sts get-caller-identity
+```
+if it is successful it should look like this :
+```json
+
+{
+    "UserId": "AIDAZ4FSWF33DQIE26Ehn",
+    "Account": "123456789012",
+    "Arn": "arn:aws:123456789012:user/Terraform_beginner_bootcamp"
+}
+```
+well need to generate AWS CLI credentials from the IAM user
+* search for the iam user on the aws seearch bok and click on it 
+* click on users
+* click on create users
+![Alt text](image.png)
+- write a user name 
+- click next 
+- click on add user to group 
+- create a group and add permissions to the group 
+- select the group
+- create user 
