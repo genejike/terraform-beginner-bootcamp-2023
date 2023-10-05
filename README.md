@@ -34,8 +34,9 @@ The bash script:[./bin/install_terraform_cli](./bin/install_terraform_cli)
 - For easier debug sessions and manuel installation of terraform cli 
 - this will make it more portable 
 ### shebang
- shebang tells the bashscript what program that will interpret the script eq `#!/bin/bash`
- we used the `#!/usr/bin/env bash` recommended by chatgpt for portability for diffeerent os distribution
+* shebang tells the bashscript what program that will interpret the script eq `#!/bin/bash`
+we used the `#!/usr/bin/env bash` recommended by
+chatgpt for portability for diffirent os distribution
 [Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))
 
 - for portability
@@ -117,10 +118,40 @@ well need to generate AWS CLI credentials from the IAM user
 * search for the iam user on the aws seearch bok and click on it 
 * click on users
 * click on create users
-![Alt text](image.png)
+![Alt text](images/image.png)
 - write a user name 
 - click next 
 - click on add user to group 
 - create a group and add permissions to the group 
 - select the group
 - create user 
+
+## Terraform Basics
+### Terraform registory
+This is where the providers and modules are stored 
+[registory.terraform.io](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/string)
+
+- **Providers** are responsible for understanding API interactions and exposing resources. it is a plugin that enables interaction with an API. it tells terraform the services it needs to interact with [providers](https://registry.terraform.io/browse/providers)
+- **Modules** are self-contained packages of Terraform configurations that are managed as a group. they area way to make large amount of terraform code modular, portable and sharable 
+#### Terraform console 
+view the list of all terraform commands by typing `terraform`
+#### Terraform init 
+run the `terraform init` to download the binaries for the providers we qill use in the project 
+
+#### Terraform plan 
+This will generate a change set use the --out if you want to save the plan 
+#### Terraform apply 
+This will run a plan and pass the change set to be executed by terraform .apply yes or no or add the --auto-approve flag to automatically approve an appy eg. `terraform apply --auto-approve`
+
+### Terraform Lock Files
+
+`.terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with this project .
+the terraform lock file should be commited to your Version Control System VSC eg.Github
+### Terraform state files 
+`terraform.tfstate`contains information about the current state of your infrastructure 
+the file should not be committed to your vcs.
+this file can contain sensitive data.
+if you loose this file, you lose knowning the state of your infrastructure.
+`.terraform.tfstate.backup`is the previous state file 
+### Terraform Directory
+`.terraform directory` contains binanries of terraform providers
