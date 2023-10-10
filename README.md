@@ -143,15 +143,20 @@ This will generate a change set use the --out if you want to save the plan
 #### Terraform apply 
 This will run a plan and pass the change set to be executed by terraform .apply yes or no or add the --auto-approve flag to automatically approve an appy eg. `terraform apply --auto-approve`
 
-### Terraform Lock Files
+#### Terraform Destroy
+This will destroy resources that where previously created by terraform plan 
+
+use the --auto-approve to skip typing yes 
+`terraform destroy --auto-approve`
+#### Terraform Lock Files
 
 `.terraform.lock.hcl` contains the locked versioning for the providers or modules that should be used with this project .
 the terraform lock file should be commited to your Version Control System VSC eg.Github
-### Terraform state files 
+#### Terraform state files 
 `terraform.tfstate`contains information about the current state of your infrastructure 
 the file should not be committed to your vcs.
 this file can contain sensitive data.
 if you loose this file, you lose knowning the state of your infrastructure.
 `.terraform.tfstate.backup`is the previous state file 
-### Terraform Directory
-`.terraform directory` contains binanries of terraform providers
+#### Terraform Directory
+`.terraform directory` contains binaries of terraform providers
