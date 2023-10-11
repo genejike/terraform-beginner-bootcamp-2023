@@ -184,3 +184,36 @@ open /home/gitpod/.terraform.d/credentials.tfrc.json
         }
     }
 ```
+#### Terraform alias 
+
+- In order to set an alias for terraform in our ~/.bash_profile  I added below in the bash_profile file 
+```
+alias tf= "terraform"
+```
+- To reload the file so that the changes will be effected 
+```
+source ~/.bash_profile 
+```
+to make sure that it gets loaded each time i set up my workspace i added a bash script and also referenced it in my gitpod.yml file 
+chatgpt gave this template 
+```sh
+#!/usr/bin/env bash
+
+# Define the alias
+alias tf="terraform"
+
+# Choose your profile configuration file (e.g., ~/.bashrc or ~/.bash_profile)
+profile_file="~/.bash_profile"
+
+# Check if the file exists and is writable
+if [ -f "$profile_file" ] && [ -w "$profile_file" ]; then
+  # Append the alias to the profile file
+  echo 'alias tf="terraform"' >> "$profile_file"
+  echo "Alias 'tf' set to 'terraform' in $profile_file"
+else
+  echo "Error: Unable to modify $profile_file. Make sure the file exists and is writable. else it already exist "
+fi
+
+#source the .bash_profile to make the alias available immediately
+source $profile_file
+```
