@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+# Define the alias
+alias tf="terraform"
+
+# Choose your profile configuration file (e.g., ~/.bashrc or ~/.bash_profile)
+profile_file="~/.bash_profile"
+
+# Check if the file exists and is writable
+if [ -f "$profile_file" ] && [ -w "$profile_file" ]; then
+  # Append the alias to the profile file
+  echo 'alias tf="terraform"' >> "$profile_file"
+  echo "Alias 'tf' set to 'terraform' in $profile_file"
+else
+  echo "Error: Unable to modify $profile_file. Make sure the file exists and is writable. else it already exist "
+fi
+
+#source the .bash_profile to make the alias available immediately
+source $profile_file
