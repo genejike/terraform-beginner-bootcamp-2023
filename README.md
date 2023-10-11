@@ -160,3 +160,27 @@ if you loose this file, you lose knowning the state of your infrastructure.
 `.terraform.tfstate.backup`is the previous state file 
 #### Terraform Directory
 `.terraform directory` contains binaries of terraform providers
+
+### issuses with terraform login on gitpod 
+when attempting to run the `terraform login `.it will launch a bash view to generate a token .but i ran into an issue while trying to paste the login onto the console 
+- click on yes 
+- click on p 
+- copy from the console `https://app.terraform.io/app/settings/tokens?source=terraform-login` or go to here to generate the login credentials `https://app.terraform.io/app/settings/tokens`and click on generate api token 
+- create a file manually 
+```sh
+touch /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+- open the file 
+```sh
+open /home/gitpod/.terraform.d/credentials.tfrc.json
+```
+- Provide the code and replace token in file
+```
+{
+    "credentials": {
+        "app.terraform.io":{
+            "token": "REPLACE-WITH-TERRAFORM-TOKEN"
+            }
+        }
+    }
+```
