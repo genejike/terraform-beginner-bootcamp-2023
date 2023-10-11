@@ -184,6 +184,7 @@ open /home/gitpod/.terraform.d/credentials.tfrc.json
         }
     }
 ```
+we have automated this workaround with the following bash script[bin/generate_tfrc](bin/generate_tfrc)
 #### Terraform alias 
 
 - In order to set an alias for terraform in our ~/.bash_profile  I added below in the bash_profile file 
