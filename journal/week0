@@ -40,7 +40,7 @@ chatgpt for portability for diffirent os distribution
 - for portability
 - will search the users path for executables 
 
-## Execution Consideration for bash scripts
+### Execution Consideration for bash scripts
 when executing the bash scripts we can use `./`
 
 eg,`./bin/install_terraform_cli`
@@ -57,17 +57,17 @@ chmod u+x ./bin/install_terraform_cli
 [chmod commands](https://en.wikipedia.org/wiki/Chmod)
 
 
-## GITPOD LIFECYCLE (Before,init,command)
-We need need to be careful when using the init cause it wunt restart an existing workspace so we use the `before` instead .
+## Gitpod lifecycle (Before,init,command)
+We need need to be careful when using the init because it would not restart an existing workspace so we use the `before` instead .
 
 see:
 [gitpod lifecycle](https://www.gitpod.io/docs/configure/workspaces/tasks)
 
-### WORKING WITH ENV VARS 
-#### Env command
+## Working with Env vars
+### Env command
 we can list all the env variable with env command 
 we can filter specific env vars using grep eg. `env | grep aws`
-#### SETTING AND UNSETTING ENV VARS 
+### Setting and unsetting Env vars
 in the terminal: 
 * we can set using `export hello='world'`
 * we can unset using `unset hello`
@@ -83,10 +83,10 @@ In a bash script:
 hello='world'
 echo $hello
 ```
-#### printing env vars 
+### printing env vars 
 print env variables with echo eg. `echo $hello`
 
-#### scopping of envars
+### scoping of env vars
  when you open  new bash terminals it  isnt aware of past terminals ,if you want it present in future terminals set env vars in bash profiles eg. `./bash_profiles`
 
  you can also persist them into gitpod by storing them in gitpods secret storage.
@@ -95,7 +95,7 @@ print env variables with echo eg. `echo $hello`
  ```
  you can store non-sensitive envars in `.gitpod.yml`
 
- ### AWS CLI INSTALLATION
+ ## AWS CLI Installation
 AWS cli is installed via a bash script [./bin/install_aws_cli](./bin/install_aws_cli)
 [Installing Aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 [SET EN VARS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html)
@@ -159,7 +159,7 @@ if you loose this file, you lose knowning the state of your infrastructure.
 #### Terraform Directory
 `.terraform directory` contains binaries of terraform providers
 
-### issuses with terraform login on gitpod 
+#### Issues with terraform login on gitpod 
 when attempting to run the `terraform login `.it will launch a bash view to generate a token .but i ran into an issue while trying to paste the login onto the console 
 - click on yes 
 - click on p 
