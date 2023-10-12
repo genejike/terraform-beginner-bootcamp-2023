@@ -57,7 +57,7 @@ chmod u+x ./bin/install_terraform_cli
 [chmod commands](https://en.wikipedia.org/wiki/Chmod)
 
 
-## GITHUB LIFECYCLE (Before,init,command)
+## GITPOD LIFECYCLE (Before,init,command)
 We need need to be careful when using the init cause it wunt restart an existing workspace so we use the `before` instead .
 
 see:
