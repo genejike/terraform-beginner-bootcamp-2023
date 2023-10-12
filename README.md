@@ -1,4 +1,4 @@
-# Terraform Beginner Bootcamp 2023
+# Terraform Beginner Bootcamp 2023- week 0
 ## Semantic versioning :mage:,:cloud:
 THIS PROJECT IS GOING TO EMPLOY SEMANTIC VERSIONING 
 [semver.org](https://semver.org/)
