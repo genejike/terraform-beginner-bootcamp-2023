@@ -1,4 +1,4 @@
-# Table of contents
+# Terraform Beginner Bootcamp 2023- week 0
 
 - [Terraform Beginner Bootcamp 2023- week 0](#terraform-beginner-bootcamp-2023--week-0)
   - [Semantic versioning :mage:,:cloud:](#semantic-versioning-magecloud)
