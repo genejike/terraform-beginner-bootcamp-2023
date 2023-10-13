@@ -1,11 +1,20 @@
 terraform {
+    #cloud {
+    #organization = "MARY"
+
+    #workspaces {
+      #name = "terra-house-blue"
+    #}
+  #}
+
   required_providers {
     aws = {
       source = "hashicorp/aws"
-      version = "5.16.2"
+      version = "5.20.0"
     }
   }
 }
+
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
 resource "aws_s3_bucket" "website_bucket" {
