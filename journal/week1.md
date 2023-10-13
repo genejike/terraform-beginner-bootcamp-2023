@@ -67,4 +67,5 @@ For example, if you have a variable in your Terraform configuration called aws_a
 - Any .auto.tfvars or .auto.tfvars.json files, processed in lexical order of their filenames.
 - Any -var and -var-file options on the command line, in the order they are provided.
 - Variable defaults
-  [blog post on terraform](https://www.env0.com/blog/terraform-variables)
+  
+  [blog post by env0 on terraform](https://www.env0.com/blog/terraform-variables)
