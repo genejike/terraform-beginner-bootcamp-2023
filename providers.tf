@@ -9,10 +9,10 @@ terraform {
   }
 
   required_providers {
-    random = {
-      source = "hashicorp/random"
-      version = "3.5.1"
-    }
+    # random = {
+      # source = "hashicorp/random"
+      # version = "3.5.1"
+    # }
     aws = {
       source = "hashicorp/aws"
       version = "5.20.0"
@@ -25,6 +25,6 @@ provider "aws" {
 
 }
 
-provider "random" {
+# provider "random" {
   # Configuration options
-}
+# }
