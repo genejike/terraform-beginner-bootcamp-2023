@@ -12,6 +12,19 @@ PROJECT_ROOT
 ```
 [Standard Module Structure](https://developer.hashicorp.com/terraform/language/modules/develop/structure)
 
+### how to delete remote tags 
+[How to delete a tag](https://devconnected.com/how-to-delete-local-and-remote-tags-on-git/)
+localy delete a tag 
+
+```
+ git tag -d <tag_name>
+```
+remotely delete a tag
+
+```
+ git push --delete origin tagname
+```
+
 ## Terraform and Input Variables
 
 ### Terraform Cloud Variables
