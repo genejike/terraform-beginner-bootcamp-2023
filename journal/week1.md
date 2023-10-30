@@ -178,3 +178,87 @@ resource "aws_s3_object" "error_html" {
 }
 ```
 terraform console - an interactive window to debug stuff 
+### Terraform Locals 
+[local values](https://developer.hashicorp.com/terraform/language/values/locals)
+```tf
+locals {
+  service_name = "forum"
+  owner        = "Community Team"
+}
+
+```
+### Terraform Data Sources
+this allows us to source data from cloud resources
+this is useful when we want to reference cloud resources without importing them 
+[data sources](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
+```tf
+data "aws_caller_identity" "current" {}
+
+output "account_id" {
+  value = data.aws_caller_identity.current.account_id
+}
+
+output "caller_arn" {
+  value = data.aws_caller_identity.current.arn
+}
+
+output "caller_user" {
+  value = data.aws_caller_identity.current.user_id
+}
+```
+
+### working with json
+```tf
+ jsonencode({"hello"="world"})
+{"hello":"world"}
+
+```
+we used the json policy to create the json bucket policy inline with the hcl 
+[jsonencode](https://developer.hashicorp.com/terraform/language/functions/jsonencode)
+
+when defining my bucket policy i used this 
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowCloudFrontServicePrincipalReadOnly",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "cloudfront.amazonaws.com"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+            "Condition": {
+                "StringEquals": {
+                    "AWS:SourceArn": "arn:aws:cloudfront::ACCOUNT_ID:distribution/DISTRIBUTION_ID"
+                }
+            }
+        },
+    ]
+}
+```
+for some reason i kept getting this error 
+![Alt text](image.png)
+i reverted back to an older version and it works fine 
+```
+{
+    "Version": "2008-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowCloudFrontServicePrincipal",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "cloudfront.amazonaws.com"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::DOC-EXAMPLE-BUCKET/*",
+            "Condition": {
+                "StringEquals": {
+                    "AWS:SourceArn": "arn:aws:cloudfront::ACCOUNT_ID:distribution/DISTRIBUTION_ID"
+                }
+            }
+        },
+    ]
+}
+```
