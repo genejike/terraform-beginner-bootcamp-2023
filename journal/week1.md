@@ -287,3 +287,27 @@ resource "example_database" "test" {
 }
 
 ```
+## Provisioners 
+ Provisioners allow to execute commands on compute instances eg. a AWS CLI Command 
+
+ they are not recommended for use by Hashicorp because configuration management tools are better to use but the functionality exits.
+ [Provisioners](https://developer.hashicorp.com/terraform/language/resources/provisioners/syntax)
+
+### Local-exec 
+In Terraform, the local-exec provisioner is used in a resource block to execute a command on the local machine where Terraform is running, typically for tasks that cannot be accomplished using native Terraform providers. This provisioner is often used for running local scripts, commands, or other actions outside of Terraform's declarative infrastructure management.
+
+```
+resource "some_resource" "example" {
+  # Resource configuration...
+
+  provisioner "local-exec" {
+    command = "echo 'This is a local command'"
+  }
+}
+
+```
+[local-exec](https://developer.hashicorp.com/terraform/language/resources/provisioners/local-exec)
+### Remote-exec 
+The remote-exec provisioner in Terraform allows you to execute a script or command on a remote resource after it is created. This can be useful for running configuration management tools, bootstrapping a cluster, or other tasks.
+This will execute commands on a machine which you target.you will need to provide credentials such as ssh to get into the machine 
+[remote _exec ](https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec)
