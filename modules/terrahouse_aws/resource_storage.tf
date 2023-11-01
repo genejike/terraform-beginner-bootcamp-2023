@@ -65,7 +65,21 @@ resource "aws_s3_object" "index_html" {
  ignore_changes = [ etag ]
    
  }
-}
+ }
+ resource "aws_s3_object" "upload_assets"{
+    for_each = fileset("${var.assets_path}","*{jpg,png,gif}")
+    bucket = aws_s3_bucket.website_bucket.bucket
+    key    = "assets/${each.key }"
+    source = "${var.assets_path}/${each.key}"
+    content_type = "image/jpeg"
+    etag = filemd5("${var.assets_path}/${each.key}")
+    lifecycle {
+       replace_triggered_by = [ terraform_data.content_version.output]
+       ignore_changes = [ etag ]
+   
+ }
+ }
+
 
 #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object
 resource "aws_s3_object" "error_html" {
@@ -83,4 +97,5 @@ resource "terraform_data" "content_version"{
   input = var.content_version
 }
     
-
+#https://github.com/genejike/terraform-beginner-bootcamp-2023/blob/70976e69582fdd0e4f9411028fcff0f97ceae4eb/modules/terrahouse_aws/resource_storage.tf#L86
+#fileset("${path.root}/public/assets","*{jpg,png,gif}")

@@ -311,3 +311,8 @@ resource "some_resource" "example" {
 The remote-exec provisioner in Terraform allows you to execute a script or command on a remote resource after it is created. This can be useful for running configuration management tools, bootstrapping a cluster, or other tasks.
 This will execute commands on a machine which you target.you will need to provide credentials such as ssh to get into the machine 
 [remote _exec ](https://developer.hashicorp.com/terraform/language/resources/provisioners/remote-exec)
+
+## FOR EACH EXPRESSIONS
+For each allows us to enumerate ver complex data types 
+this is mostly useful when you are creating multiples and u want to reduce the amount of repetitive terraform code 
+[For each expressions ](https://developer.hashicorp.com/terraform/language/meta-arguments/for_each)
