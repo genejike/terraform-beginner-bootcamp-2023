@@ -1,5 +1,18 @@
 terraform {
+  cloud {
+    organization = "MARY"
 
+    workspaces {
+      name = "terraform-cloud"
+    }
+  }
+
+  required_providers {
+    aws = {
+      source = "hashicorp/aws"
+      version = "5.20.0"
+    }
+  }
 
 }
 
