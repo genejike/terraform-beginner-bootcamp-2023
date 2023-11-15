@@ -58,24 +58,24 @@ resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
 resource "aws_s3_object" "index_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "index.html"
-  source = "${path.root}${var.index_html_filepath}"
+  source = "${path.cwd}/${path.root}${var.index_html_filepath}"
   ## the cdn did work but it only downloaded the file so we have to specify the content type below and also add a valid html document 
   content_type = "text/html"
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
   # etag = "${md5(file("path/to/file"))}"
- etag = filemd5("${path.root}${var.index_html_filepath}")
+ etag = filemd5("${path.cwd}/${path.root}${var.index_html_filepath}")
 }
 
 #https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object
 resource "aws_s3_object" "error_html" {
   bucket = aws_s3_bucket.website_bucket.bucket
   key    = "error.html"
-  source = "${path.root}${var.error_html_filepath}"
+  source = "${path.cwd}/${path.root}${var.error_html_filepath}"
   # The filemd5() function is available in Terraform 0.11.12 and later
   # For Terraform 0.11.11 and earlier, use the md5() function and the file() function:
   # etag = "${md5(file("path/to/file"))}"
- etag = filemd5("${path.root}${var.error_html_filepath}")
+ etag = filemd5("${path.cwd}/${path.root}${var.error_html_filepath}")
 }
 
 
