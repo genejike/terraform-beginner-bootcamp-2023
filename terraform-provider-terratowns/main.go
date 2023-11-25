@@ -12,7 +12,7 @@ import (
 	"log"
 	"fmt"
 	"github.com/google/uuid"
-	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+  "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 )
@@ -27,6 +27,7 @@ func main() {
 	// Prints to standard output
 	fmt.Println("Hello, world!")
 }
+
 
 type Config struct {
 	Endpoint string
@@ -99,6 +100,7 @@ func Resource() *schema.Resource{
 		ReadContext: resourceHouseRead,
 		UpdateContext: resourceHouseUpdate,
 		DeleteContext: resourceHouseDelete,
+
 		Schema:map[string]*schema.Schema{
 			"name":{
 				Type: schema.TypeString,
@@ -117,7 +119,8 @@ func Resource() *schema.Resource{
 				Required: true,
 				Description:"Domain Name of home eg .cloudfront.net",
 
-			},"town":{
+			},
+      "town":{
 				Type: schema.TypeString,
 				Required: true,
 				Description:"Name of town the home belongs to ",
@@ -133,6 +136,8 @@ func Resource() *schema.Resource{
 
            
 		},
+
+
 	}
 
 	log.Print("Resource:end")
@@ -336,4 +341,24 @@ func resourceHouseDelete(ctx context.Context,d *schema.ResourceData,m interface{
 	log.Print("resourceHouseDelete:end")
 	return diags
 	
+=======
+func resourceHouseCreate(ctx context.Context,d *schema.ResourceData,m interface{})diag.Diagnostics{
+  var diags diag.Diagnostics
+  return diags
+}
+
+func resourceHouseRead(ctx context.Context,d *schema.ResourceData,m interface{})diag.Diagnostics{
+	var diags diag.Diagnostics
+	return diags
+  }
+
+func resourceHouseUpdate(ctx context.Context,d *schema.ResourceData,m interface{})diag.Diagnostics{
+	var diags diag.Diagnostics
+	return diags
+  }
+
+func resourceHouseDelete(ctx context.Context,d *schema.ResourceData,m interface{})diag.Diagnostics{
+	var diags diag.Diagnostics
+	return diags
+
   }
