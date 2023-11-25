@@ -12,7 +12,7 @@ import (
 	"log"
 	"fmt"
 	"github.com/google/uuid"
-  "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
+    "github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/plugin"
 )
@@ -340,25 +340,4 @@ func resourceHouseDelete(ctx context.Context,d *schema.ResourceData,m interface{
 	d.SetId("")
 	log.Print("resourceHouseDelete:end")
 	return diags
-	
-=======
-func resourceHouseCreate(ctx context.Context,d *schema.ResourceData,m interface{})diag.Diagnostics{
-  var diags diag.Diagnostics
-  return diags
 }
-
-func resourceHouseRead(ctx context.Context,d *schema.ResourceData,m interface{})diag.Diagnostics{
-	var diags diag.Diagnostics
-	return diags
-  }
-
-func resourceHouseUpdate(ctx context.Context,d *schema.ResourceData,m interface{})diag.Diagnostics{
-	var diags diag.Diagnostics
-	return diags
-  }
-
-func resourceHouseDelete(ctx context.Context,d *schema.ResourceData,m interface{})diag.Diagnostics{
-	var diags diag.Diagnostics
-	return diags
-
-  }
