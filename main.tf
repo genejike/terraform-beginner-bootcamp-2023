@@ -9,7 +9,7 @@ terraform {
 
 }
 provider "terratowns" {
-  endpoint = "http://localhost:4567"
+  endpoint = "http://localhost:4567/api"
   user_uuid = "e328f4ab-b99f-421c-84c9-4ccea042c7d1"
   token = "9b49b3fb-b8e9-483c-b703-97ba88eef8e0"
   
@@ -28,4 +28,15 @@ module "terrahouse_aws" {
  
   }
 */
- 
+
+resource "terratowns_home" "Home" {
+  name = "TIPS TO PLAY THE GAME"
+  description= <<Description
+  An old 2001 game - My guide to play arcanum without messing with the plot 
+  Description
+  #domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = "3fdq3gz.cloudfront_url.net"
+  town="gamers_grotto"
+  content_version ="1"
+   
+ }
