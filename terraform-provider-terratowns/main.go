@@ -117,13 +117,13 @@ func Resource() *schema.Resource{
 				Required: true,
 				Description:"Domain Name of home eg .cloudfront.net",
 
-			},
-			"town":{
+			},"town":{
 				Type: schema.TypeString,
 				Required: true,
 				Description:"Name of town the home belongs to ",
 
 			},
+			
 			"content_version":{
 				Type: schema.TypeInt,
 				Required: true,

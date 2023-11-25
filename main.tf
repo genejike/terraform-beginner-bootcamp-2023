@@ -29,14 +29,14 @@ module "terrahouse_aws" {
   }
 */
 
-resource "terratowns_home" "Home" {
+resource "terratowns_home" "home" {
   name = "TIPS TO PLAY THE GAME"
-  description= <<Description
+  description= <<DESCRIPTION
   An old 2001 game - My guide to play arcanum without messing with the plot 
-  Description
+DESCRIPTION
   #domain_name = module.terrahouse_aws.cloudfront_url
-  domain_name = "3fdq3gz.cloudfront_url.net"
-  town="gamers_grotto"
-  content_version ="1"
+  domain_name = "3fdq3gz.cloudfront.net"
+  town = "gamers-grotto"
+  content_version = "1"
    
  }
