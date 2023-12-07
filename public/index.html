@@ -3,11 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>flowers </title>
+    <title>Football Game</title>
+    <style>
+        body {
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image:url('assets/stadium.jpg'); /* Add the path to your football background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: blue;
+            overflow: hidden; /* Optional: Prevents scrollbars from appearing */
+        }
+
+        h1 {
+            margin-bottom: 30px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 12px 24px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #playButton {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #playButton:hover {
+            background-color: #45a049;
+        }
+
+        #player1Button, #player2Button {
+            background-color: #3498db;
+            color: white;
+        }
+
+        #player1Button:hover, #player2Button:hover {
+            background-color: #2980b9;
+        }
+
+        #result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>why you should look at flowers!!<h1>
-     <img src = /assets/flowers.jpg >
-     <img src =/assets/flowers2.jpg > 
+
+<h1>Football Game</h1>
+
+<button id="playButton" onclick="startGame()">Play Game</button>
+
+<div id="gameArea" style="display: none;">
+    <div>
+        <button id="player1Button" onclick="playerClick(1)" disabled>Player 1 Goal</button>
+        <button id="player2Button" onclick="playerClick(2)" disabled>Player 2 Goal</button>
+    </div>
+
+    <p id="result"></p>
+</div>
+
+<script>
+    let player1Score = 0;
+    let player2Score = 0;
+
+    function startGame() {
+        document.getElementById("playButton").style.display = "none";
+        document.getElementById("gameArea").style.display = "block";
+        enableButtons();
+    }
+
+    function enableButtons() {
+        document.getElementById("player1Button").disabled = false;
+        document.getElementById("player2Button").disabled = false;
+    }
+
+    function playerClick(player) {
+        if (player === 1) {
+            player1Score++;
+        } else if (player === 2) {
+            player2Score++;
+        }
+
+        updateScores();
+        checkWinner();
+    }
+
+    function updateScores() {
+        document.getElementById("player1Button").innerHTML = `Player 1 Goal (${player1Score} goals)`;
+        document.getElementById("player2Button").innerHTML = `Player 2 Goal (${player2Score} goals)`;
+    }
+
+    function checkWinner() {
+        const winningScore = 3; // Change the winning score as needed
+
+        if (player1Score >= winningScore || player2Score >= winningScore) {
+            const winner = player1Score > player2Score ? "Player 1" : "Player 2";
+            document.getElementById("result").innerHTML = `${winner} wins the game!`;
+            disableButtons();
+        }
+    }
+
+    function disableButtons() {
+        document.getElementById("player1Button").disabled = true;
+        document.getElementById("player2Button").disabled = true;
+    }
+</script>
+
 </body>
 </html>

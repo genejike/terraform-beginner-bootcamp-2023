@@ -6,7 +6,7 @@ variable "user_uuid" {
     error_message    = "The user_uuid value is not a valid UUID."
   }
 }
-
+/*
 variable "bucket_name" {
   description = "The name of the S3 bucket"
   type        = string
@@ -19,6 +19,7 @@ variable "bucket_name" {
     error_message = "The bucket name must be between 3 and 63 characters, start and end with a lowercase letter or number, and can contain only lowercase letters, numbers, hyphens, and dots."
   }
 }
+*/
 
 variable "index_html_filepath" {
   type        = string
@@ -53,3 +54,5 @@ variable "assets_path" {
   type        = string
   
 }
+
+

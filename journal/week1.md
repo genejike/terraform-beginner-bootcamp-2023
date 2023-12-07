@@ -188,7 +188,7 @@ locals {
 
 ```
 ### Terraform Data Sources
-this allows us to source data from cloud resources
+This allows us to source data from cloud resources
 this is useful when we want to reference cloud resources without importing them 
 [data sources](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)
 ```tf
