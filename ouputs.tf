@@ -1,13 +1,13 @@
 output "bucket_name" {
  description = "Bucket name for our static website hosting"
- value = module.terrahouse_aws.bucket_name
+ value = module.football_home.bucket_name
 }
 
 output "s3_website_endpoint" {
  description = "S3 static website hosting endpoint"
- value = module.terrahouse_aws.website_endpoint
+ value = module.football_home.website_endpoint
 }
-output "cloudfront_url" {
+output "domain_name" {
     description = "Cloudfront distribution Domain name"
-  value = module.terrahouse_aws.cloudfront_url
+  value = module.football_home.domain_name
 }

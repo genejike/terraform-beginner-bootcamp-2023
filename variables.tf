@@ -23,19 +23,34 @@ variable "bucket_name" {
 }
 
 */
-variable "index_html_filepath" {
-  type        = string
+variable "football" {
+  type        = object({
+    public_path= string
+    content_version = number
+    
+  })
 }
-
-variable "error_html_filepath" {
-  type        = string
+variable "cakes" {
+  type        = object({
+    public_path= string
+    content_version = number
+    
+  })
 }
+/*
 
 variable "content_version" {
   type    = number 
 }
 
+
+variable "error_html_filepath" {
+  type        = string
+}
+
+
 variable "assets_path" {
   type        = string
   
 }
+*/

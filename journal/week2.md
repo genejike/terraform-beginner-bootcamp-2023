@@ -1,4 +1,9 @@
 # Terraform Beginner Bootcamp 2023 - Week 2
+# Table of contents
+
+  - [GITOPS with terraform cloud](#gitops-with-terraform-cloud)
+  - [Working with Ruby](#working-with-ruby)
+  - [Terratowns Mock Server](#terratowns-mock-server)
 
 ## GITOPS with terraform cloud 
 
@@ -55,3 +60,44 @@ bundle exec ruby server.rb
 ```
 
 All of the code for our server is stored in the `server.rb` file.
+
+## Error encoutered while migrating state files back to tf cloud 
+* I ran the tf login to connect to my terraform.io .but i wasnt still viewing my state files in cloud 
+* I fixed this by providing the block 
+```
+cloud {
+    organization = "MARY"
+
+    workspaces {
+      name = "terra-house-blue"
+    }
+  }
+
+```
+in the `/workspace/terraform-beginner-bootcamp-2023/main.tf` as i previously had it in this file `/workspace/terraform-beginner-bootcamp-2023/modules/terrahouse/main.tf`.
+
+* I rotated out my token  in the terraform login prompt and the $TERRAFORM_CLOUD_TOKEN env 
+
+## terrahome_aws
+```tf
+module "home_cakes" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  content_version = var.content_version
+  public_path = var.cakes_public_path
+ 
+  }
+
+```
+In this module the public directory expects the following 
+- index.html
+- error.html
+- assets 
+
+all top level files in the assets will be copied, but not any subdirectories
+
+## configuration drift between local state files and terraform cloud 
+
+* i encountered a drift because i ran the `./bin/build_provider`
+
+* i ran `tf init` and `tf state pull` and everything went in place 

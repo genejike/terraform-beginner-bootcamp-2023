@@ -1,4 +1,12 @@
 terraform {
+cloud {
+    organization = "MARY"
+
+    workspaces {
+      name = "terra-house-blue"
+    }
+  }
+
   required_providers {
     terratowns = {
       source = "local.providers/local/terratowns"
@@ -15,13 +23,11 @@ provider "terratowns" {
   
 }
 
-module "terrahouse_aws" {
-  source = "./modules/terrahouse_aws"
+module "football_home" {
+  source = "./modules/terrahome_aws"
   user_uuid = var.teacherseat_user_uuid
-  content_version = var.content_version
-  index_html_filepath = var.index_html_filepath
-  error_html_filepath = var.error_html_filepath
-  assets_path = var.assets_path
+  content_version = var.football.content_version
+  public_path = var.football.public_path
  
   }
 
@@ -33,7 +39,31 @@ resource "terratowns_home" "home" {
  2.ALWAYS ABIDE BY THE RULES
   
 DESCRIPTION
-  domain_name = module.terrahouse_aws.cloudfront_url
+  domain_name = module.football_home.domain_name
+  #domain_name = "3fdqg3gz.cloudfront.net"
+  town = "missingo"
+  content_version = var.football.content_version
+   
+ }
+ 
+
+ module "home_cakes" {
+  source = "./modules/terrahome_aws"
+  user_uuid = var.teacherseat_user_uuid
+  content_version = var.cakes.content_version
+  public_path = var.cakes.public_path
+ 
+  }
+
+
+
+ resource "terratowns_home" "home_cake" {
+  name = "How to bake cakes "
+  description= <<DESCRIPTION
+I love baking goods and cakes are something i will definetly try baking
+
+DESCRIPTION
+  domain_name = module.home_cakes.domain_name
   #domain_name = "3fdqg3gz.cloudfront.net"
   town = "missingo"
   content_version = "1"

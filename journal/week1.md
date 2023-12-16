@@ -1,4 +1,16 @@
 # Terraform-beginner-bootcamp-2023 - Week 1
+
+# Table of contents
+  - [Root Module structure](#root-module-structure)
+  - [Terraform and Input Variables](#terraform-and-input-variables)
+  - [Dealing With Configuration Drift](#dealing-with-configuration-drift)
+  - [What happens if we lose our state file?](#what-happens-if-we-lose-our-state-file)
+  - [Terraform Modules](#terraform-modules)
+  - [considerations when using chatgpt to wrte trraform](#considerations-when-using-chatgpt-to-wrte-trraform)
+  - [WORKING WITH FILES IN TERRAFORM](#working-with-files-in-terraform)
+  - [Provisioners](#provisioners)
+  - [FOR EACH EXPRESSIONS](#for-each-expressions)
+  
 ## Root Module structure 
 our Root module structure is as follows:
 ```
