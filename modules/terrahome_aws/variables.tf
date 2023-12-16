@@ -21,9 +21,11 @@ variable "bucket_name" {
 }
 */
 
-variable "index_html_filepath" {
+variable "public_path" {
   type        = string
-  description = "Path to the index.html file"
+  description = "path to public directory"
+  }
+  /*
   validation {
     condition     = fileexists(var.index_html_filepath)
     error_message = "The specified HTML file path is not valid."
@@ -39,6 +41,7 @@ variable "error_html_filepath" {
     error_message = "The specified HTML file path is not valid."
   }
 }
+*/
 
 variable "content_version" {
   type        = number
@@ -49,10 +52,12 @@ variable "content_version" {
     error_message = "Content version must be a positive integer starting at 1."
   }
 }
+/*
 variable "assets_path" {
   description = "path to assets folder "
   type        = string
   
 }
+*/
 
 
